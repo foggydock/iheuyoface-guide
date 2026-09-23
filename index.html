@@ -62,7 +62,7 @@ async function showChapter(index) {
   reader.scrollTo({ left: reader.scrollWidth, behavior: 'auto' });
 }
 async function start() {
-  const res = await fetch('manifest.json', { cache: 'no-store' });
+  const res = await fetch('manifest.json?edition=11', { cache: 'no-store' });
   book = await res.json();
   picker.innerHTML = book.chapters.map((chapter, i) => '<option value="' + i + '">' + chapter.id + '　' + chapter.title + '</option>').join('');
   picker.addEventListener('change', () => showChapter(Number(picker.value)).catch((e) => reader.innerHTML = '<p class="loading">' + escapeHtml(e.message) + '</p>'));
