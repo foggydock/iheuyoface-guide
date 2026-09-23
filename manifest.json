@@ -1,0 +1,16 @@
+{
+  "title": "人を大切にするための手引き",
+  "author": "イヘウヨFACE",
+  "chapters": [
+    { "id": "01", "title": "素直でいる", "path": "chapters/01_sunaodeiru.md" },
+    { "id": "02", "title": "つくって渡す", "path": "chapters/02_tsukuttowatasu.md" },
+    { "id": "03", "title": "続いてしまうもの", "path": "chapters/03_tsuzuiteshimaumono.md" },
+    { "id": "04", "title": "ときめきを残す", "path": "chapters/04_tokimekiwonokosu.md" },
+    { "id": "05", "title": "解けないものと暮らす", "path": "chapters/05_tokenaimonotokurasu.md" },
+    { "id": "06", "title": "自分のものさしで決める", "path": "chapters/06_jibunnomonosashidekimeru.md" },
+    { "id": "07", "title": "今日を大事にする", "path": "chapters/07_kyouodaijinisuru.md" },
+    { "id": "08", "title": "書き換えながら進む", "path": "chapters/08_kakikaenagarasusumu.md" },
+    { "id": "09", "title": "からだを味方にする", "path": "chapters/09_karadawomikatani.md" },
+    { "id": "10", "title": "仕事を遊ぶ", "path": "chapters/10_shigotowoasobu.md" }
+  ]
+}
