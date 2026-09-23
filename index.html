@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>人を大切にするための手引き</title>
 <meta name="theme-color" content="#f5f1e8">
+<link rel="manifest" href="site.webmanifest">
+<link rel="apple-touch-icon" href="icon.png">
 <style>
   :root { --paper: #f5f1e8; --ink: #26221e; --muted: #766f65; --line: #d7d0c4; }
   * { box-sizing: border-box; }
@@ -67,6 +69,7 @@ async function start() {
   await showChapter(0);
 }
 start().catch((e) => { reader.innerHTML = '<p class="loading">' + escapeHtml(e.message) + '</p>'; });
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 </script>
 </body>
 </html>
