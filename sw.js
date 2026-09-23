@@ -1,4 +1,4 @@
-const CACHE = 'iheuyoface-guide-v1';
+const CACHE = 'iheuyoface-guide-v2';
 const ASSETS = ['./', './index.html', './manifest.json', './site.webmanifest', './icon.png', './icon512.png'];
 
 self.addEventListener('install', (event) => {
