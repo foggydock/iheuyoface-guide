@@ -11,6 +11,7 @@
     { "id": "07", "title": "今日を大事にする", "path": "chapters/07_kyouodaijinisuru.md" },
     { "id": "08", "title": "書き換えながら進む", "path": "chapters/08_kakikaenagarasusumu.md" },
     { "id": "09", "title": "からだを味方にする", "path": "chapters/09_karadawomikatani.md" },
-    { "id": "10", "title": "仕事を遊ぶ", "path": "chapters/10_shigotowoasobu.md" }
+    { "id": "10", "title": "仕事を遊ぶ", "path": "chapters/10_shigotowoasobu.md" },
+    { "id": "11", "title": "このアプリについて", "path": "chapters/11_konoappnitsuite.md" }
   ]
 }
