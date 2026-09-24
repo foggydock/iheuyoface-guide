@@ -14,6 +14,7 @@
     { "id": "09", "title": "からだを味方にする", "path": "chapters/09_karadawomikatani.md" },
     { "id": "10", "title": "仕事を遊ぶ", "path": "chapters/10_shigotowoasobu.md" },
     { "id": "12", "title": "ただ一緒にいる", "path": "chapters/12_tadaisshoniiru.md" },
-    { "id": "13", "title": "ひとりの時間を守る", "path": "chapters/13_hitorinojikanwomamoru.md" }
+    { "id": "13", "title": "ひとりの時間を守る", "path": "chapters/13_hitorinojikanwomamoru.md" },
+    { "id": "14", "title": "分からないと言う", "path": "chapters/14_wakaranaitoiu.md" }
   ]
 }
