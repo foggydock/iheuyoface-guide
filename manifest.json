@@ -2,6 +2,7 @@
   "title": "人を大切にするための手引き",
   "author": "イヘウヨ’FACE",
   "chapters": [
+    { "id": "0", "title": "このエッセイについて", "path": "chapters/00_konoessay_nitsuite.md" },
     { "id": "01", "title": "素直でいる", "path": "chapters/01_sunaodeiru.md" },
     { "id": "02", "title": "つくって渡す", "path": "chapters/02_tsukuttowatasu.md" },
     { "id": "03", "title": "続いてしまうもの", "path": "chapters/03_tsuzuiteshimaumono.md" },
@@ -12,7 +13,7 @@
     { "id": "08", "title": "書き換えながら進む", "path": "chapters/08_kakikaenagarasusumu.md" },
     { "id": "09", "title": "からだを味方にする", "path": "chapters/09_karadawomikatani.md" },
     { "id": "10", "title": "仕事を遊ぶ", "path": "chapters/10_shigotowoasobu.md" },
-    { "id": "11", "title": "このアプリについて", "path": "chapters/11_konoappnitsuite.md" },
-    { "id": "12", "title": "ただ一緒にいる", "path": "chapters/12_tadaisshoniiru.md" }
+    { "id": "12", "title": "ただ一緒にいる", "path": "chapters/12_tadaisshoniiru.md" },
+    { "id": "13", "title": "ひとりの時間を守る", "path": "chapters/13_hitorinojikanwomamoru.md" }
   ]
 }
