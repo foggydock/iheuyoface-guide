@@ -18,6 +18,7 @@
     { "id": "14", "title": "分からないと言う", "path": "chapters/14_wakaranaitoiu.md" },
     { "id": "15", "title": "やらないことを決める", "path": "chapters/15_yaranai_kotowokimeru.md" },
     { "id": "16", "title": "違いを急いで埋めない", "path": "chapters/16_chigaiwoisoideumenai.md" },
-    { "id": "17", "title": "誇りを持つ", "path": "chapters/17_hokoriwomotsu.md" }
+    { "id": "17", "title": "誇りを持つ", "path": "chapters/17_hokoriwomotsu.md" },
+    { "id": "18", "title": "助けを受け取る", "path": "chapters/18_tasuke_wouketoru.md" }
   ]
 }
