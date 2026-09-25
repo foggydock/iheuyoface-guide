@@ -23,6 +23,7 @@
     { "id": "19", "title": "余白を残す", "path": "chapters/19_yohakuwonokosu.md" },
     { "id": "20", "title": "長く働く", "path": "chapters/20_nagakuhataraku.md" },
     { "id": "21", "title": "始める", "path": "chapters/21_hajimeru.md" },
-    { "id": "22", "title": "機嫌を整える", "path": "chapters/22_kigenwototonoeru.md" }
+    { "id": "22", "title": "機嫌を整える", "path": "chapters/22_kigenwototonoeru.md" },
+    { "id": "23", "title": "比べるより、見る", "path": "chapters/23_kuraberuyorimiru.md" }
   ]
 }
