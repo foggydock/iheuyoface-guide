@@ -26,6 +26,7 @@
     { "id": "22", "title": "機嫌を整える", "path": "chapters/22_kigenwototonoeru.md" },
     { "id": "23", "title": "比べるより、見る", "path": "chapters/23_kuraberuyorimiru.md" },
     { "id": "24", "title": "戻る", "path": "chapters/24_modoru.md" },
-    { "id": "25", "title": "待つ", "path": "chapters/25_matsu.md" }
+    { "id": "25", "title": "待つ", "path": "chapters/25_matsu.md" },
+    { "id": "26", "title": "たずねる", "path": "chapters/26_tazuneru.md" }
   ]
 }
