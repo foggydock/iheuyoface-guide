@@ -21,6 +21,7 @@
     { "id": "17", "title": "誇りを持つ", "path": "chapters/17_hokoriwomotsu.md" },
     { "id": "18", "title": "助けを受け取る", "path": "chapters/18_tasuke_wouketoru.md" },
     { "id": "19", "title": "余白を残す", "path": "chapters/19_yohakuwonokosu.md" },
-    { "id": "20", "title": "長く働く", "path": "chapters/20_nagakuhataraku.md" }
+    { "id": "20", "title": "長く働く", "path": "chapters/20_nagakuhataraku.md" },
+    { "id": "21", "title": "始める", "path": "chapters/21_hajimeru.md" }
   ]
 }
