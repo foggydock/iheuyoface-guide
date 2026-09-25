@@ -16,6 +16,7 @@
     { "id": "12", "title": "ただ一緒にいる", "path": "chapters/12_tadaisshoniiru.md" },
     { "id": "13", "title": "ひとりの時間を守る", "path": "chapters/13_hitorinojikanwomamoru.md" },
     { "id": "14", "title": "分からないと言う", "path": "chapters/14_wakaranaitoiu.md" },
-    { "id": "15", "title": "やらないことを決める", "path": "chapters/15_yaranai_kotowokimeru.md" }
+    { "id": "15", "title": "やらないことを決める", "path": "chapters/15_yaranai_kotowokimeru.md" },
+    { "id": "16", "title": "違いを急いで埋めない", "path": "chapters/16_chigaiwoisoideumenai.md" }
   ]
 }
