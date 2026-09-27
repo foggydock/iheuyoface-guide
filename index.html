@@ -67,7 +67,7 @@ async function showChapter(index) {
 async function start() {
   const res = await fetch('manifest.json?edition=11', { cache: 'no-store' });
   book = await res.json();
-  picker.innerHTML = book.chapters.map((chapter, i) => '<option value="' + i + '">軸 ' + String(chapter.id).padStart(2, '0') + '｜' + chapter.title + '</option>').join('');
+  picker.innerHTML = book.chapters.map((chapter, i) => '<option value="' + i + '">軸 ' + chapter.id + '｜' + chapter.title + '</option>').join('');
   picker.addEventListener('change', () => showChapter(Number(picker.value)).catch((e) => reader.innerHTML = '<p class="loading">' + escapeHtml(e.message) + '</p>'));
   await showChapter(0);
 }
