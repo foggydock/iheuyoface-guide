@@ -1,6 +1,6 @@
 {
-  "title": "人を大切にするための手引き",
-  "author": "イヘウヨ’FACE",
+  "title": "軸-jiku-",
+  "author": "’FACE",
   "chapters": [
     { "id": "0", "title": "このエッセイについて", "path": "chapters/00_konoessay_nitsuite.md" },
     { "id": "01", "title": "素直でいる", "path": "chapters/01_sunaodeiru.md" },

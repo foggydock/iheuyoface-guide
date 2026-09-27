@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>人を大切にするための手引き</title>
+<title>軸-jiku-</title>
 <meta name="theme-color" content="#f5f1e8">
 <link rel="manifest" href="site.webmanifest">
 <link rel="apple-touch-icon" href="icon.png">
@@ -32,7 +32,7 @@
 </head>
 <body>
 <div id="reader-app">
-  <header><span>イヘウヨ’FACE</span><select id="chapter-picker" aria-label="章を選ぶ"></select></header>
+  <header><span>’FACE</span><select id="chapter-picker" aria-label="軸を選ぶ"></select></header>
   <main id="reader"><p class="loading">読み込み中です。</p></main>
 </div>
 <script>
@@ -67,7 +67,7 @@ async function showChapter(index) {
 async function start() {
   const res = await fetch('manifest.json?edition=11', { cache: 'no-store' });
   book = await res.json();
-  picker.innerHTML = book.chapters.map((chapter, i) => '<option value="' + i + '">' + chapter.id + '　' + chapter.title + '</option>').join('');
+  picker.innerHTML = book.chapters.map((chapter, i) => '<option value="' + i + '">軸 ' + String(chapter.id).padStart(2, '0') + '｜' + chapter.title + '</option>').join('');
   picker.addEventListener('change', () => showChapter(Number(picker.value)).catch((e) => reader.innerHTML = '<p class="loading">' + escapeHtml(e.message) + '</p>'));
   await showChapter(0);
 }
