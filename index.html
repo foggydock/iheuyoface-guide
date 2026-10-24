@@ -14,13 +14,17 @@
   #reader-app { height: 100%; }
   header { height: 62px; padding: 12px 18px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 12px; font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; }
   header span { font-size: 13px; color: var(--muted); letter-spacing: .1em; }
+  header a { margin-left: auto; font-size: 12px; color: var(--muted); letter-spacing: .08em; text-decoration: none; border-bottom: 1px solid var(--line); white-space: nowrap; }
   #chapter-picker { max-width: min(420px, 70vw); padding: 7px; border: 1px solid var(--line); border-radius: 4px; background: #fffdf8; color: var(--ink); }
-  #reader { height: calc(100% - 62px); overflow-x: auto; overflow-y: hidden; padding: 30px 36px; writing-mode: vertical-rl; text-orientation: mixed; }
+  #reader { width: 100%; height: calc(100% - 62px); overflow-x: auto; overflow-y: hidden; padding: 30px 36px; writing-mode: vertical-rl; text-orientation: mixed; }
   article { height: 100%; line-height: 2; font-size: clamp(17px, 2.2vw, 21px); letter-spacing: .08em; }
   h1, h2 { font-weight: 500; margin: 0 0 1.8em; }
   h1 { font-size: 1.45em; }
   h2 { font-size: 1em; color: var(--muted); }
   p { margin: 0; margin-block-end: 1.7em; max-height: 100%; text-indent: 1em; }
+  p.dir { color: var(--muted); font-size: .92em; text-indent: 2em; }
+  p.say { text-indent: 0; }
+  .who { font-weight: 600; margin-inline-end: .2em; }
   ul { margin: 0 0 1.4em; padding: 0 1.4em 0 0; }
   li { margin-left: .8em; }
   .tate-num { text-combine-upright: all; text-orientation: upright; }
@@ -32,16 +36,19 @@
 </head>
 <body>
 <div id="reader-app">
-  <header><span>’FACE</span><select id="chapter-picker" aria-label="軸を選ぶ"></select></header>
+  <header><span>’FACE</span><select id="chapter-picker" aria-label="軸を選ぶ"></select><a id="book-switch" href="#"></a></header>
   <main id="reader"><p class="loading">読み込み中です。</p></main>
 </div>
 <script>
 const picker = document.getElementById('chapter-picker');
+const bookSwitch = document.getElementById('book-switch');
+const isDialogue = location.hash === '#face-to-face';
+const bookDir = isDialogue ? 'face-to-face/' : '';
 const reader = document.getElementById('reader');
 let book;
 const escapeHtml = (text) => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const formatText = (text) => escapeHtml(text)
-  .replace(/AI/g, '<span class="tate-latin">AI</span>')
+  .replace(/AI|’FACE to ’face/g, (word) => '<span class="tate-latin">' + word + '</span>')
   .replace(/[0-9]+/g, (number) => '<span class="tate-num">' + number + '</span>');
 function renderMarkdown(md) {
   const lines = md.split('\n'); let html = ''; let list = false;
@@ -53,22 +60,40 @@ function renderMarkdown(md) {
     if (line.startsWith('# ')) { closeList(); html += '<h1>' + formatText(line.slice(2)) + '</h1>'; continue; }
     if (line.startsWith('## ')) { closeList(); html += '<h2>' + formatText(line.slice(3)) + '</h2>'; continue; }
     if (line.startsWith('- ')) { if (!list) { html += '<ul>'; list = true; } html += '<li>' + formatText(line.slice(2)) + '</li>'; continue; }
-    closeList(); html += '<p>' + formatText(line) + '</p>';
+    closeList();
+    if (line.startsWith('（')) { html += '<p class="dir">' + formatText(line) + '</p>'; continue; }
+    const speech = line.match(/^([^「（]{1,8})(「.*」)$/);
+    if (speech) { html += '<p class="say"><span class="who">' + formatText(speech[1]) + '</span>' + formatText(speech[2]) + '</p>'; continue; }
+    html += '<p>' + formatText(line) + '</p>';
   }
   closeList(); return html;
 }
+let chapterRequest = 0;
 async function showChapter(index) {
-  const chapter = book.chapters[index];
-  const res = await fetch(chapter.path, { cache: 'no-store' });
-  if (!res.ok) throw new Error('原稿を開けませんでした。');
-  reader.innerHTML = '<article>' + renderMarkdown(await res.text()) + '</article>';
+  const request = ++chapterRequest;
+  let html;
+  try {
+    const res = await fetch(bookDir + book.chapters[index].path, { cache: 'no-store' });
+    if (!res.ok) throw new Error();
+    html = '<article>' + renderMarkdown(await res.text()) + '</article>';
+  } catch (e) {
+    html = '<p class="loading">原稿を開けませんでした。</p>';
+  }
+  // 続けて選び直したときは、遅れて届いた前の章で上書きしない
+  if (request !== chapterRequest) return;
+  reader.innerHTML = html;
   reader.scrollTo({ left: reader.scrollWidth, behavior: 'auto' });
 }
 async function start() {
-  const res = await fetch('manifest.json?edition=11', { cache: 'no-store' });
+  const res = await fetch(bookDir + 'manifest.json?edition=11', { cache: 'no-store' });
   book = await res.json();
-  picker.innerHTML = book.chapters.map((chapter, i) => '<option value="' + i + '">軸 ' + chapter.id + '｜' + chapter.title + '</option>').join('');
-  picker.addEventListener('change', () => showChapter(Number(picker.value)).catch((e) => reader.innerHTML = '<p class="loading">' + escapeHtml(e.message) + '</p>'));
+  const label = (chapter) => (isDialogue ? chapter.id : '軸 ' + chapter.id) + '｜' + chapter.title;
+  picker.replaceChildren(...book.chapters.map((chapter, i) => new Option(label(chapter), i)));
+  document.title = book.title;
+  bookSwitch.textContent = isDialogue ? '軸-jiku-へ' : '’FACE to ’face';
+  bookSwitch.href = isDialogue ? location.pathname : location.pathname + '#face-to-face';
+  bookSwitch.addEventListener('click', () => setTimeout(() => location.reload(), 0));
+  picker.addEventListener('change', () => showChapter(Number(picker.value)));
   await showChapter(0);
 }
 start().catch((e) => { reader.innerHTML = '<p class="loading">' + escapeHtml(e.message) + '</p>'; });
