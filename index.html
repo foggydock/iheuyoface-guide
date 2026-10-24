@@ -8,7 +8,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="apple-touch-icon" href="icon.png">
 <style>
-  :root { --paper: #f5f1e8; --ink: #26221e; --muted: #766f65; --line: #d7d0c4; }
+  :root { --paper: #f5f1e8; --ink: #26221e; --muted: #766f65; --line: #d7d0c4; --accent: #4d7a74; }
   * { box-sizing: border-box; }
   html, body { height: 100%; margin: 0; background: var(--paper); color: var(--ink); font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif; }
   #reader-app { height: 100%; }
@@ -22,9 +22,15 @@
   h1 { font-size: 1.45em; }
   h2 { font-size: 1em; color: var(--muted); }
   p { margin: 0; margin-block-end: 1.7em; max-height: 100%; text-indent: 1em; }
-  p.dir { color: var(--muted); font-size: .92em; text-indent: 2em; }
+  /* ’FACE to ’face：題名の上に横書きの頭書き、セリフとト書きの台本表示 */
+  article.dialogue { position: relative; padding-top: 3.4em; }
+  .kicker { position: absolute; top: 0; right: 0; writing-mode: horizontal-tb; display: flex; align-items: baseline; gap: .9em; padding-bottom: .5em; border-bottom: 1px solid var(--line); font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; font-size: 12px; letter-spacing: .22em; color: var(--accent); white-space: nowrap; }
+  .kicker b { font-weight: 500; font-size: 1.5em; letter-spacing: 0; color: var(--ink); }
+  article.dialogue h1 { margin-block-end: 3.4em; letter-spacing: .12em; }
+  p.dir { color: var(--muted); font-size: .9em; text-indent: 2em; }
   p.say { text-indent: 0; }
-  .who { font-weight: 600; margin-inline-end: .2em; }
+  .who { font-weight: 600; color: var(--accent); margin-inline-end: .25em; }
+  article.dialogue h2, article.dialogue ul { font-size: .85em; color: var(--muted); }
   ul { margin: 0 0 1.4em; padding: 0 1.4em 0 0; }
   li { margin-left: .8em; }
   .tate-num { text-combine-upright: all; text-orientation: upright; }
@@ -48,7 +54,7 @@ const reader = document.getElementById('reader');
 let book;
 const escapeHtml = (text) => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const formatText = (text) => escapeHtml(text)
-  .replace(/AI|’FACE to ’face/g, (word) => '<span class="tate-latin">' + word + '</span>')
+  .replace(/AI/g, '<span class="tate-latin">AI</span>')
   .replace(/[0-9]+/g, (number) => '<span class="tate-num">' + number + '</span>');
 function renderMarkdown(md) {
   const lines = md.split('\n'); let html = ''; let list = false;
@@ -57,6 +63,8 @@ function renderMarkdown(md) {
     const line = raw.trim();
     if (!line) continue;
     if (line === '---') { closeList(); html += '<div class="rule"></div>'; continue; }
+    const series = isDialogue && line.match(/^# ’FACE to ’face\s*([0-9]+)\s*(.*)$/);
+    if (series) { closeList(); html += '<div class="kicker">’FACE to ’face<b>' + series[1] + '</b></div><h1>' + formatText(series[2]) + '</h1>'; continue; }
     if (line.startsWith('# ')) { closeList(); html += '<h1>' + formatText(line.slice(2)) + '</h1>'; continue; }
     if (line.startsWith('## ')) { closeList(); html += '<h2>' + formatText(line.slice(3)) + '</h2>'; continue; }
     if (line.startsWith('- ')) { if (!list) { html += '<ul>'; list = true; } html += '<li>' + formatText(line.slice(2)) + '</li>'; continue; }
@@ -75,7 +83,7 @@ async function showChapter(index) {
   try {
     const res = await fetch(bookDir + book.chapters[index].path, { cache: 'no-store' });
     if (!res.ok) throw new Error();
-    html = '<article>' + renderMarkdown(await res.text()) + '</article>';
+    html = '<article' + (isDialogue ? ' class="dialogue"' : '') + '>' + renderMarkdown(await res.text()) + '</article>';
   } catch (e) {
     html = '<p class="loading">原稿を開けませんでした。</p>';
   }
