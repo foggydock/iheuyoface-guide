@@ -31,6 +31,7 @@
     { "id": "26", "title": "譲る", "path": "chapters/27_yuzuru.md" },
     { "id": "27", "title": "伝える", "path": "chapters/28_tsutaeru.md" },
     { "id": "28", "title": "助かるを増やす", "path": "chapters/29_tasukaruwofuyasu.md" },
-    { "id": "29", "title": "一緒にふざける", "path": "chapters/30_isshonifuzakeru.md" }
+    { "id": "29", "title": "一緒にふざける", "path": "chapters/30_isshonifuzakeru.md" },
+    { "id": "30", "title": "使い心地を大切にする", "path": "chapters/31_tsukaigokochi.md" }
   ]
 }
