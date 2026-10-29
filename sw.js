@@ -1,4 +1,4 @@
-const CACHE = 'iheuyoface-guide-v13';
+const CACHE = 'iheuyoface-guide-axis32-20261030';
 const ASSETS = ['./', './index.html', './site.webmanifest', './icon.png', './icon512.png'];
 
 self.addEventListener('install', (event) => {
