@@ -5,6 +5,7 @@
     { "id": "1", "title": "「音が止んで、鳴っていたと気づく」", "path": "chapters/01_otogayande.md" },
     { "id": "2", "title": "「家で食べるほうがうまいなら、それでいい」", "path": "chapters/02_iedetaberuhou.md" },
     { "id": "3", "title": "「壁より先に、補給を見る」", "path": "chapters/03_kabeyorisaki.md" },
-    { "id": "4", "title": "「高いかどうかは、使った日で決まる」", "path": "chapters/04_takaikadouka.md" }
+    { "id": "4", "title": "「高いかどうかは、使った日で決まる」", "path": "chapters/04_takaikadouka.md" },
+    { "id": "5", "title": "「棚を買う前に、置き場所を決める」", "path": "chapters/05_tanawokaumae.md" }
   ]
 }
