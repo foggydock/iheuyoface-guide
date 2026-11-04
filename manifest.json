@@ -36,6 +36,7 @@
     { "id": "31", "title": "任せて楽しむ", "path": "chapters/32_makasetetanoshimu.md" },
     { "id": "32", "title": "できることを渡す", "path": "chapters/33_dekirukotowowatasu.md" },
     { "id": "33", "title": "次の自分を助ける", "path": "chapters/34_tsuginojibun.md" },
-    { "id": "34", "title": "見えていなかった手間を見る", "path": "chapters/35_mienaitema.md" }
+    { "id": "34", "title": "見えていなかった手間を見る", "path": "chapters/35_mienaitema.md" },
+    { "id": "35", "title": "言葉を受け取る", "path": "chapters/36_kotobawouketoru.md" }
   ]
 }
