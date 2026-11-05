@@ -6,6 +6,7 @@
     { "id": "2", "title": "「家で食べるほうがうまいなら、それでいい」", "path": "chapters/02_iedetaberuhou.md" },
     { "id": "3", "title": "「壁より先に、補給を見る」", "path": "chapters/03_kabeyorisaki.md" },
     { "id": "4", "title": "「高いかどうかは、使った日で決まる」", "path": "chapters/04_takaikadouka.md" },
-    { "id": "5", "title": "「棚を買う前に、置き場所を決める」", "path": "chapters/05_tanawokaumae.md" }
+    { "id": "5", "title": "「棚を買う前に、置き場所を決める」", "path": "chapters/05_tanawokaumae.md" },
+    { "id": "6", "title": "「蛇口をひねれば、水が出る」", "path": "chapters/06_jaguchi.md" }
   ]
 }
