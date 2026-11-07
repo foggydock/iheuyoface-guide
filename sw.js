@@ -1,4 +1,4 @@
-const CACHE = 'iheuyoface-guide-axis36-20261107';
+const CACHE = 'iheuyoface-guide-ftf7-20261108';
 const ASSETS = ['./', './index.html', './site.webmanifest', './icon.png', './icon512.png'];
 
 self.addEventListener('install', (event) => {
