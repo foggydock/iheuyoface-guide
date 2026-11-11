@@ -9,6 +9,7 @@
     { "id": "5", "title": "「棚を買う前に、置き場所を決める」", "path": "chapters/05_tanawokaumae.md" },
     { "id": "6", "title": "「蛇口をひねれば、水が出る」", "path": "chapters/06_jaguchi.md" },
     { "id": "7", "title": "「分からない言葉を、教えてもらう」", "path": "chapters/07_oshietemorau.md" },
-    { "id": "8", "title": "「気分より、決まりに任せる」", "path": "chapters/08_kimeruzutoru.md" }
+    { "id": "8", "title": "「気分より、決まりに任せる」", "path": "chapters/08_kimeruzutoru.md" },
+    { "id": "9", "title": "「道は、最後まで一緒に歩く」", "path": "chapters/09_michiwasaigomade.md" }
   ]
 }
