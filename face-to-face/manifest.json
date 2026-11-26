@@ -14,6 +14,7 @@
     { "id": "10", "title": "「誰だったかは、聞けば分かる」", "path": "chapters/10_daredattaka.md" },
     { "id": "11", "title": "「見えてくるまで、毎日水をやる」", "path": "chapters/11_miegurumade.md" },
     { "id": "12", "title": "「なんだとー、の次に、聞いてみる」", "path": "chapters/12_nandatoonotsugi.md" },
-    { "id": "13", "title": "「どっちが安いかは、元の値段で決まる」", "path": "chapters/13_dottigayasui.md" }
+    { "id": "13", "title": "「どっちが安いかは、元の値段で決まる」", "path": "chapters/13_dottigayasui.md" },
+    { "id": "14", "title": "「毎年のことを、はじめてのように」", "path": "chapters/14_maitoshinokoto.md" }
   ]
 }
